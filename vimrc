@@ -21,6 +21,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'tmhedberg/SimpylFold'
     " Python indent plugin
     Plug 'Vimjas/vim-python-pep8-indent'
+    " Disable arrow keys 
+    Plug 'wikitopian/hardmode'
 call plug#end()
 
 set iminsert=0
@@ -41,6 +43,17 @@ nnoremap <C-h> <C-w><C-h>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
+
+" select next/prev using C-j/k instead of C-n/p
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
+
+" Enable vim hardmode
+let g:HardMode_level = 'wannabe'
+let g:HardMode_hardmodeMsg = "Don't use this!"
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
 " Enable folding
 set foldmethod=indent
