@@ -1,7 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set lines=50 columns=200
+" if needed set the size of the screen 
+" set lines=24 columns=80
 
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 "let g:plug_threads = 1
