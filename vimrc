@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set lines=50 columns=200
+
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 "let g:plug_threads = 1
 call plug#begin($HOME . '/.vim/plugged')
