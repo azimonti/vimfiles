@@ -1,14 +1,14 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-" if needed set the size of the screen 
+" if needed set the size of the screen
 " set lines=24 columns=80
 
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 "let g:plug_threads = 1
 call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
-    Plug 'eparreno/vim-l9' 
+    Plug 'eparreno/vim-l9'
     Plug 'othree/vim-autocomplpop'
     " File browser
     Plug 'scrooloose/nerdtree'
@@ -24,8 +24,10 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'tmhedberg/SimpylFold'
     " Python indent plugin
     Plug 'Vimjas/vim-python-pep8-indent'
-    " Disable arrow keys 
+    " Disable arrow keys
     Plug 'wikitopian/hardmode'
+    " highlight trail spaces in red
+    Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 set iminsert=0
@@ -69,6 +71,11 @@ nnoremap <space> za
 " automatically refresh changed files
 set autoread
 
+" enable white space coloring
+let g:better_whitespace_enabled=1
+" remap for cleaning whitespaces
+let g:better_whitespace_operator='_s'
+
 " Python indent
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -83,8 +90,9 @@ au BufNewFile,BufRead *.py
 au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
-    \ set shiftwidth=2 
+    \ set shiftwidth=2
 
-" Define BadWhitespace before using in a match
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" f5 will launch python3
+nnoremap <silent> <F5> :!python3 %<CR>
+
+syntax on
