@@ -95,4 +95,8 @@ au BufNewFile,BufRead *.js, *.html, *.css
 " f5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
 
-syntax on
+" Disable annoying beeping
+set noerrorbells
+set vb t_vb=
+autocmd GUIEnter * set vb t_vb=
+
