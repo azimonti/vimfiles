@@ -10,6 +10,8 @@ call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
     Plug 'eparreno/vim-l9'
     Plug 'othree/vim-autocomplpop'
+    " Automatically close parenthesis
+    Plug 'Townk/vim-autoclose'
     " File browser
     Plug 'scrooloose/nerdtree'
     " For Git
@@ -28,6 +30,9 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'wikitopian/hardmode'
     " highlight trail spaces in red
     Plug 'ntpeters/vim-better-whitespace'
+    " html autocomplete
+    Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
+    Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
 call plug#end()
 
 set iminsert=0
@@ -87,7 +92,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 " js, html, css indent
-au BufNewFile,BufRead *.js, *.html, *.css
+au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2
