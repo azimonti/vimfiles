@@ -30,6 +30,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'wikitopian/hardmode'
     " highlight trail spaces in red
     Plug 'ntpeters/vim-better-whitespace'
+    " ejs syntax
+    Plug 'nikvdp/ejs-syntax'
     " html autocomplete
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
@@ -81,6 +83,9 @@ let g:better_whitespace_enabled=1
 " remap for cleaning whitespaces
 let g:better_whitespace_operator='_s'
 
+syntax on
+filetype plugin indent on
+
 " Python indent
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
@@ -88,14 +93,17 @@ au BufNewFile,BufRead *.py
     \ set shiftwidth=4 |
     \ set textwidth=79 |
     \ set expandtab |
-    \ set autoindent |
     \ set fileformat=unix
 
 " js, html, css indent
-au BufNewFile,BufRead *.js,*.html,*.css
+au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
-    \ set shiftwidth=2
+    \ set expandtab |
+    \ set shiftwidth=2 |
+    \ set fileformat=unix
+
+au BufEnter *.ejs :setl filetype=html
 
 " f5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
