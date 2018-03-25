@@ -57,8 +57,8 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " select next/prev using C-j/k instead of C-n/p
-inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
-inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
+"inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
+"inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 
 " Enable vim hardmode
 let g:HardMode_level = 'wannabe'
