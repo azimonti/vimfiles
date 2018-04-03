@@ -10,8 +10,6 @@ call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
     Plug 'eparreno/vim-l9'
     Plug 'othree/vim-autocomplpop'
-    " Automatically close parenthesis
-    Plug 'Townk/vim-autoclose'
     " File browser
     Plug 'scrooloose/nerdtree'
     " For Git
