@@ -10,14 +10,20 @@ call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
     Plug 'eparreno/vim-l9'
     Plug 'othree/vim-autocomplpop'
-    " File browser
-    Plug 'scrooloose/nerdtree'
     " For Git
     Plug 'tpope/vim-fugitive'
+    " File browser
+    Plug 'scrooloose/nerdtree'
+    " For NERDTree and Git
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     " Add commands like Remove, Move, Find
     Plug 'tpope/vim-eunuch'
     " Git gutter, with stage and revert in <leader>hs / hr
     Plug 'airblade/vim-gitgutter'
+    " Controp
+    Plug 'ctrlpvim/ctrlp.vim'
+    " List modified files in a git repo
+    Plug 'jasoncodes/ctrlp-modified.vim'
     " Improved status line
     Plug 'bling/vim-airline'
     " Rectify folding indent
@@ -55,14 +61,55 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " select next/prev using C-j/k instead of C-n/p
-"inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
-"inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
+
+set wildignore+=*.pyc,*.DS_Store,build,node_modules
+
+" Open NERDTree at startup
+autocmd vimenter * NERDTree
+" Map key for NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" shortcut to quickly find a file in NERDTree
+nmap <leader>p :NERDTreeFind<CR>
+" Nerdtree config for wildignore
+let NERDTreeRespectWildIgnore=1
+" Open NERDTree if no files are specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close if NERDTree is the only open tab
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Open NERDTree automatically when vim starts up on opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" CtrlP tags lookup
+nnoremap <leader>s :CtrlPTag<CR>
+" <leader>[w]f to find input for GitGrep
+nnoremap <leader>wf :GitGrep -w <cword><Space>
+nnoremap <leader>f :GitGrep<Space>
+" <leader>g to find a tag (C-] is taken over by clang_complete)
+nnoremap <leader>g :exec("tag ".expand("<cword>"))<CR>
+" <leader>cd to change the dir to the current file
+nnoremap <leader>cd :cd %:p:h<CR>
+
+" ctrlp-modified shortcuts (NOTE: not working in Windows ?)
+map <Leader>m :CtrlPModified<CR>
+map <Leader>M :CtrlPBranch<CR>
+
+" == Settings for CtrlP Finder
+let g:ctrlp_by_filename = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$|bin$|obj|data$|Debug$|Release$|RelWithDebInfo$',
+  \ 'file': '\v\.(exe|so|dll|o|d|jar|class)$',
+  \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 " Enable vim hardmode
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = "Don't use this!"
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
 
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
@@ -111,3 +158,23 @@ set noerrorbells
 set vb t_vb=
 autocmd GUIEnter * set vb t_vb=
 
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('ejs', 202, 'none', '#ff5f00', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
