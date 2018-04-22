@@ -2,7 +2,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 " if needed set the size of the screen
-" set lines=24 columns=80
+" set lines=24 columns=150
 
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 "let g:plug_threads = 1
@@ -40,6 +40,11 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
 call plug#end()
+
+" colorscheme
+set t_Co=256
+"color candycode
+color molokai
 
 set iminsert=0
 set imsearch=0
@@ -108,8 +113,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 " Enable vim hardmode
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = "Don't use this!"
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-"autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
+"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
 
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 
@@ -136,7 +141,6 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
     \ set expandtab |
     \ set fileformat=unix
 
