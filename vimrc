@@ -69,7 +69,7 @@ nnoremap <C-l> <C-w><C-l>
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 
-set wildignore+=*.pyc,*.DS_Store,build,node_modules
+set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__
 
 " Open NERDTree at startup
 autocmd vimenter * NERDTree
