@@ -39,6 +39,8 @@ call plug#begin($HOME . '/.vim/plugged')
     " html autocomplete
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
+    " solidity sintax
+    Plug 'tomlion/vim-solidity'
 call plug#end()
 
 " colorscheme
@@ -72,7 +74,7 @@ inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__
 
 " Open NERDTree at startup
-autocmd vimenter * NERDTree
+"autocmd vimenter * NERDTree
 " Map key for NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " shortcut to quickly find a file in NERDTree
