@@ -40,13 +40,15 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
     " solidity sintax
-    Plug 'tomlion/vim-solidity'
+    Plug 'marcolinux/vim-solidity'
 call plug#end()
 
 " colorscheme
 set t_Co=256
 "color candycode
 color molokai
+" connect the system clipboard 
+set clipboard^=unnamed,unnamedplus
 
 set iminsert=0
 set imsearch=0
