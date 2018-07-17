@@ -3,6 +3,10 @@ filetype off                   " required!
 
 " if needed set the size of the screen
 " set lines=24 columns=150
+" temporary workaround
+if has('python3')
+  silent! python3 1
+endif
 
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 "let g:plug_threads = 1
@@ -16,6 +20,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'scrooloose/nerdtree'
     " For NERDTree and Git
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    " For NERDTree and local ignore
+    Plug 'dsimidzija/vim-nerdtree-ignore'
     " Add commands like Remove, Move, Find
     Plug 'tpope/vim-eunuch'
     " Git gutter, with stage and revert in <leader>hs / hr
@@ -39,16 +45,24 @@ call plug#begin($HOME . '/.vim/plugged')
     " html autocomplete
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
-    " solidity sintax
+    " ipython
+    Plug 'wmvanvliet/vim-ipython'
+    " solidity syntax
     Plug 'marcolinux/vim-solidity'
+    " LaTeX syntax
+    Plug 'lervag/vimtex'
 call plug#end()
 
 " colorscheme
 set t_Co=256
 "color candycode
 color molokai
-" connect the system clipboard 
+" connect the system clipboard
 set clipboard^=unnamed,unnamedplus
+
+" minimal gui
+set guioptions=i
+set guioptions+=r
 
 set iminsert=0
 set imsearch=0
