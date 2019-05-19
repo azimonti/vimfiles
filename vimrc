@@ -48,9 +48,11 @@ call plug#begin($HOME . '/.vim/plugged')
     " ipython
     Plug 'wmvanvliet/vim-ipython'
     " solidity syntax
-    Plug 'marcolinux/vim-solidity'
+    Plug 'tomlion/vim-solidity'
     " LaTeX syntax
     Plug 'lervag/vimtex'
+    " Haskells syntax
+    Plug 'neovimhaskell/haskell-vim'
 call plug#end()
 
 " colorscheme
