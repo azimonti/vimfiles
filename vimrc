@@ -46,7 +46,7 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'vim-scripts/closetag.vim', { 'for': ['.ejs', '.html'] }
     Plug 'tmhedberg/matchit', { 'for': ['.ejs', '.html'] }
     " ipython
-    Plug 'wmvanvliet/vim-ipython'
+    " Plug 'wmvanvliet/vim-ipython'
     " solidity syntax
     Plug 'tomlion/vim-solidity'
     " LaTeX syntax
