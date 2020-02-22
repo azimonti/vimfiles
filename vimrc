@@ -53,6 +53,9 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'lervag/vimtex'
     " Haskells syntax
     Plug 'neovimhaskell/haskell-vim'
+    " Vim notes
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-notes'
 call plug#end()
 
 " colorscheme
@@ -152,6 +155,11 @@ set autoread
 let g:better_whitespace_enabled=1
 " remap for cleaning whitespaces
 let g:better_whitespace_operator='_s'
+
+" notes options
+let g:notes_directories = ['~/coding/git_archives/various/guides/']
+let g:notes_suffix = '.txt'
+let g:notes_title_sync = 'no'
 
 syntax on
 filetype plugin indent on
