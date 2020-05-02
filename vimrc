@@ -89,7 +89,10 @@ nnoremap <C-l> <C-w><C-l>
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 
-set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__
+set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
+" Nerdtree config for wildignore
+"let NERDTreeRespectWildIgnore=1
+let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'build$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', 'xml$[[dir]]']
 
 " Open NERDTree at startup
 "autocmd vimenter * NERDTree
@@ -97,8 +100,6 @@ set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__
 map <C-n> :NERDTreeToggle<CR>
 " shortcut to quickly find a file in NERDTree
 nmap <leader>p :NERDTreeFind<CR>
-" Nerdtree config for wildignore
-let NERDTreeRespectWildIgnore=1
 " Open NERDTree if no files are specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
