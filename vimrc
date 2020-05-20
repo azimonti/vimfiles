@@ -53,6 +53,10 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'lervag/vimtex'
     " Haskells syntax
     Plug 'neovimhaskell/haskell-vim'
+    " Autopep8
+    Plug 'tell-k/vim-autopep8'
+    " Flake8
+    Plug 'nvie/vim-flake8'
 call plug#end()
 
 " colorscheme
@@ -175,8 +179,11 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
 
 au BufEnter *.ejs :setl filetype=html
 
-" f5 will launch python3
+" F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
+" F8 will launch autopep8
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+let g:autopep8_aggressive=2
 
 " Disable annoying beeping
 set noerrorbells
