@@ -141,7 +141,10 @@ let g:HardMode_hardmodeMsg = "Don't use this!"
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
 
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+nnorem:help vimtex-tex-flavorap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+" set ft-vim-plugin option
+let g:tex_flavor = 'latex'
 
 " Enable folding
 set foldmethod=indent
