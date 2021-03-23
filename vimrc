@@ -53,6 +53,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'lervag/vimtex'
     " Haskells syntax
     Plug 'neovimhaskell/haskell-vim'
+    " cmake syntax
+    Plug 'pboettch/vim-cmake-syntax'
     " Autopep8
     Plug 'tell-k/vim-autopep8'
     " Flake8
