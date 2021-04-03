@@ -174,6 +174,14 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set fileformat=unix
 
+" C / C++ indent
+au BufNewFile,BufRead *.h,*.c,*.hpp,*.cpp,*.hh,*.cc,*.hxx,*.cxx
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set fileformat=unix
+
 " js, html, css indent
 au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set tabstop=2 |
