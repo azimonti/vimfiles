@@ -100,18 +100,18 @@ set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
 "let NERDTreeRespectWildIgnore=1
 let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'build$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', 'xml$[[dir]]']
 
-" Open NERDTree at startup
+" open NERDTree at startup
 "autocmd vimenter * NERDTree
-" Map key for NERDTree
+" map key for NERDTree
 map <C-n> :NERDTreeToggle<CR>
 " shortcut to quickly find a file in NERDTree
 nmap <leader>p :NERDTreeFind<CR>
-" Open NERDTree if no files are specified
+" open NERDTree if no files are specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close if NERDTree is the only open tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Open NERDTree automatically when vim starts up on opening a directory
+" open NERDTree automatically when vim starts up on opening a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
@@ -137,7 +137,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
-" Enable vim hardmode
+" enable vim hardmode
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = "Don't use this!"
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
@@ -148,11 +148,11 @@ nnorem:help vimtex-tex-flavorap <leader>h <Esc>:call ToggleHardMode()<CR>
 " set ft-vim-plugin option
 let g:tex_flavor = 'latex'
 
-" Enable folding
+" enable folding
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
+" enable folding with the spacebar
 nnoremap <space> za
 
 " automatically refresh changed files
@@ -166,7 +166,14 @@ let g:better_whitespace_operator='_s'
 syntax on
 filetype plugin indent on
 
-" Python indent
+" shell indent
+au BufNewFile,BufRead *.sh
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set fileformat=unix
+
+" python indent
 au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -174,7 +181,7 @@ au BufNewFile,BufRead *.py
     \ set expandtab |
     \ set fileformat=unix
 
-" C / C++ indent
+" c / c++ indent
 au BufNewFile,BufRead *.h,*.c,*.hpp,*.cpp,*.hh,*.cc,*.hxx,*.cxx
     \ set tabstop=4 |
     \ set softtabstop=4 |
@@ -200,7 +207,7 @@ let g:autopep8_aggressive=2
 " F8 will launch flake8
 autocmd FileType python map <buffer> <F8> :call flake8#Flake8()<CR>
 
-" Disable annoying beeping
+" disable annoying beeping
 set noerrorbells
 set vb t_vb=
 autocmd GUIEnter * set vb t_vb=
