@@ -1,0 +1,7 @@
+-recurse=yes
+--tag-relative=no
+--exclude=.git
+--exclude=externals
+--c++-kinds=+p
+--fields=+iaS
+--extra=+q
