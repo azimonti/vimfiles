@@ -59,6 +59,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'tell-k/vim-autopep8'
     " Flake8
     Plug 'nvie/vim-flake8'
+    " AsyncRun
+    Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 " colorscheme
