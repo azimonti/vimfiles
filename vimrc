@@ -200,9 +200,12 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set fileformat=unix
 
 au BufEnter *.ejs :setl filetype=html
+au BufEnter *.sh.cfg :setl filetype=sh
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
+" F6  will remove all trailing whitespaces
+nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " F7 will launch autopep8
 autocmd FileType python noremap <buffer> <F7> :call Autopep8()<CR>
 let g:autopep8_aggressive=2
