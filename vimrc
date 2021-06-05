@@ -61,6 +61,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'nvie/vim-flake8'
     " AsyncRun
     Plug 'skywind3000/asyncrun.vim'
+    " Switch src/header
+    Plug 'derekwyatt/vim-fswitch'
 call plug#end()
 
 " colorscheme
@@ -138,6 +140,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|o|d|jar|class)$',
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
+" == Settings for fswitch
+nmap <silent> <Leader>o :FSHere<cr>
 
 " enable vim hardmode
 let g:HardMode_level = 'wannabe'
