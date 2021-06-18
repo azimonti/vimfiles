@@ -57,7 +57,7 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'tell-k/vim-autopep8'
     " Flake8
     Plug 'nvie/vim-flake8'
-    " Asycrun
+    " AsyncRun
     Plug 'skywind3000/asyncrun.vim'
     " Switch src/header
     Plug 'derekwyatt/vim-fswitch'
