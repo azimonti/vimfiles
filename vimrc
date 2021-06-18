@@ -53,8 +53,6 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'lervag/vimtex'
     " Haskells syntax
     Plug 'neovimhaskell/haskell-vim'
-    " cmake syntax
-    Plug 'pboettch/vim-cmake-syntax'
     " Autopep8
     Plug 'tell-k/vim-autopep8'
     " Flake8
@@ -63,6 +61,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'skywind3000/asyncrun.vim'
     " Switch src/header
     Plug 'derekwyatt/vim-fswitch'
+    " Tagbar
+    Plug 'majutsushi/tagbar'
 call plug#end()
 
 " colorscheme
@@ -203,6 +203,15 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set expandtab |
     \ set shiftwidth=2 |
     \ set fileformat=unix
+
+" CMakeLists.txt
+au BufNewFile,BufRead CMakeLists.txt
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set fileformat=unix
+
 
 au BufEnter *.ejs :setl filetype=html
 au BufEnter *.sh.cfg :setl filetype=sh
