@@ -67,8 +67,11 @@ call plug#end()
 
 " colorscheme
 set t_Co=256
-"color candycode
-color molokai
+if has("win32unix")
+  color candycode
+else
+  color molokai
+endif
 " connect the system clipboard
 set clipboard^=unnamed,unnamedplus
 
