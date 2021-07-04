@@ -9,6 +9,14 @@ if has('python3')
 endif
 
 set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    call system('mkdir ~/.vim/undodir')
+    set undodir=~/.vim/undodir
+    set undofile
+endif
+
 "let g:plug_threads = 1
 call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
@@ -72,6 +80,10 @@ if has("win32unix")
 else
   color molokai
 endif
+
+
+set undofile
+
 " connect the system clipboard
 set clipboard^=unnamed,unnamedplus
 
