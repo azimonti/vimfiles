@@ -227,9 +227,27 @@ au BufNewFile,BufRead CMakeLists.txt
     \ set expandtab |
     \ set fileformat=unix
 
-
 au BufEnter *.ejs :setl filetype=html
 au BufEnter *.sh.cfg :setl filetype=sh
+
+
+function! NewUuid()
+  if executable('uuidgen')
+    return toupper(system("uuidgen | tr -d - | tr -d '\n' | tr '[:upper:]' '[:lower:]'  && echo"))
+  else
+    return "BINARY_NOT_FOUND"
+  endif
+endfunction
+
+" Templates
+:autocmd BufNewFile *.h 0r ~/.vim/templates/skeleton.h
+:autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.cpp
+:autocmd BufNewFile *.hpp 0r ~/.vim/templates/skeleton.hpp
+:autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
+:autocmd bufnewfile *,h,*.c,*.hpp,*.cpp exe "1," . 10 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *,h,*.c,*.hpp,*.cpp exe "1," . 10 . "g/DATE/s//" .strftime("%Y-%m-%d")
+:autocmd bufnewfile *,h,*.c,*.hpp,*.cpp exe "1," . 10 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *,h,*.c,*.hpp,*.cpp exe "1," . 10 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
