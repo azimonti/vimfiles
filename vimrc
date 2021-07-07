@@ -12,9 +12,10 @@ set rtp=$MYVIMFILES,$VIM,$VIMRUNTIME
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    call system('mkdir ~/.vim/undodir')
     set undodir=~/.vim/undodir
     set undofile
+    set undolevels=1000
+    set undoreload=10000
 endif
 
 "let g:plug_threads = 1
