@@ -82,9 +82,6 @@ else
   color molokai
 endif
 
-
-set undofile
-
 " connect the system clipboard
 set clipboard^=unnamed,unnamedplus
 
@@ -241,14 +238,11 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.h 0r ~/.vim/templates/skeleton.h
-:autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.cpp
-:autocmd BufNewFile *.hpp 0r ~/.vim/templates/skeleton.hpp
-:autocmd BufNewFile *.cpp 0r ~/.vim/templates/skeleton.cpp
-:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp exe "1," . 8 . "g/DATE/s//" .strftime("%Y-%m-%d")
-:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.h,*.c,*.hpp,*.cpp,*.py exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp,*.py exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp,*.py exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp,*.py exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.c,*.hpp,*.cpp,*.py exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
