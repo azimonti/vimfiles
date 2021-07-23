@@ -33,8 +33,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'dsimidzija/vim-nerdtree-ignore'
     " Add commands like Remove, Move, Find
     Plug 'tpope/vim-eunuch'
-    " Git gutter, with stage and revert in <leader>hs / hr
-    Plug 'airblade/vim-gitgutter'
+    " Use the sign column to indicate added, modified and removed lines
+    Plug 'mhinz/vim-signify'
     " Controp
     Plug 'ctrlpvim/ctrlp.vim'
     " List modified files in a git repo
