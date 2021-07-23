@@ -262,6 +262,8 @@ autocmd GUIEnter * set vb t_vb=
 " unsets the \"last search pattern\" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
+xnoremap p pgvy
+
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
