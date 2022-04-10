@@ -239,12 +239,12 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.c,*.cpp,*.h,*.hpp,*.py,*.sh exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.h,*.hpp,*.py,*.sh exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.h,*.hpp,*.py      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                          exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.c,*.cpp,*.h,*.hpp,*.py,*.sh exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.c,*.cpp,*.h,*.hpp,*.py,*.sh exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.py,*.sh exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.py,*.sh exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.py      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.sh                                exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.hpp                           exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.hpp                           exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
