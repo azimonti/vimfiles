@@ -187,27 +187,29 @@ let g:better_whitespace_operator='_s'
 syntax on
 filetype plugin indent on
 
-" shell indent
-au BufNewFile,BufRead *.sh
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set fileformat=unix
-
-" python indent
-au BufNewFile,BufRead *.py
+" default indent for most extensions
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.dot,*.h,*.hpp,*.hh,*.hxx,*.py,*.sh
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set expandtab |
     \ set fileformat=unix
 
-" c / c++ indent
-au BufNewFile,BufRead *.h,*.c,*.hpp,*.cpp,*.hh,*.cc,*.hxx,*.cxx
+" CMakeLists.txt indent
+au BufNewFile,BufRead CMakeLists.txt
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set expandtab |
+    \ set fileformat=unix
+
+" dot indent
+au BufNewFile,BufRead *.dot
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set autoindent |
+    \ set smartindent |
     \ set fileformat=unix
 
 " js, html, css indent
@@ -216,14 +218,6 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set softtabstop=2 |
     \ set expandtab |
     \ set shiftwidth=2 |
-    \ set fileformat=unix
-
-" CMakeLists.txt
-au BufNewFile,BufRead CMakeLists.txt
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set expandtab |
     \ set fileformat=unix
 
 au BufEnter *.ejs :setl filetype=html
