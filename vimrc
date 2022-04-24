@@ -188,7 +188,7 @@ syntax on
 filetype plugin indent on
 
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.dot,*.h,*.hpp,*.hh,*.hxx,*.py,*.sh
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -233,12 +233,12 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.py,*.sh exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.py,*.sh exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.py      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                                exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.h,*.hpp                           exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.hpp                           exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.sh                                      exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.hpp                                 exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.hpp                                 exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
