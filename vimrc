@@ -223,6 +223,7 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
 au BufEnter *.ejs :setl filetype=html
 au BufEnter *.sh.cfg :setl filetype=sh
 au BufEnter *.env :setl filetype=sh
+au BufEnter *.imk :setl filetype=sh
 
 function! NewUuid()
   if executable('uuidgen')
