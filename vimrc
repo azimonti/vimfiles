@@ -213,7 +213,7 @@ au BufNewFile,BufRead *.dot
     \ set fileformat=unix
 
 " js, html, css indent
-au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
+au BufNewFile,BufRead *.css,*.ejs,*.js,*.html,*.svg,*.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set expandtab |
@@ -221,9 +221,10 @@ au BufNewFile,BufRead *.js,*.ejs,*.html,*.css
     \ set fileformat=unix
 
 au BufEnter *.ejs :setl filetype=html
-au BufEnter *.sh.cfg :setl filetype=sh
 au BufEnter *.env :setl filetype=sh
 au BufEnter *.imk :setl filetype=sh
+au BufEnter *.sh.cfg :setl filetype=sh
+au BufEnter *.svg :setl filetype=xml
 
 function! NewUuid()
   if executable('uuidgen')
@@ -234,12 +235,12 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                                      exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.h,*.hpp                                 exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.hpp                                 exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.sh                                            exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.hpp                                       exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.hpp                                       exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
