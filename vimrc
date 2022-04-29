@@ -187,6 +187,14 @@ let g:better_whitespace_operator='_s'
 syntax on
 filetype plugin indent on
 
+" abbreviations
+" ↔ left right arrow
+iabbrev <-> <C-V>u2194
+" ← left arrow
+iabbrev <-- <C-V>u2190
+" → right arrow
+iabbrev --> <C-V>u2192
+
 " default indent for most extensions
 au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
     \ set tabstop=4 |
