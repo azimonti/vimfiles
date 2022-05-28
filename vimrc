@@ -116,7 +116,7 @@ inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
 " Nerdtree config for wildignore
 "let NERDTreeRespectWildIgnore=1
-let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'build$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', 'xml$[[dir]]']
+let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'bin$[[dir]]', 'build$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', 'xml$[[dir]]']
 
 " open NERDTree at startup
 "autocmd vimenter * NERDTree
@@ -125,13 +125,13 @@ map <C-n> :NERDTreeToggle<CR>
 " shortcut to quickly find a file in NERDTree
 nmap <leader>p :NERDTreeFind<CR>
 " open NERDTree if no files are specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"" autocmd StdinReadPre * let s:std_in=1
+"" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close if NERDTree is the only open tab
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " open NERDTree automatically when vim starts up on opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+"" autocmd StdinReadPre * let s:std_in=1
+"" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " CtrlP tags lookup
 nnoremap <leader>s :CtrlPTag<CR>
@@ -150,7 +150,7 @@ map <Leader>M :CtrlPBranch<CR>
 " == Settings for CtrlP Finder
 let g:ctrlp_by_filename = 1
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$|bin$|obj|data$|Debug$|Release$|RelWithDebInfo$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$|bin$|build$|Debug$|data$|obj|Release$',
   \ 'file': '\v\.(exe|so|dll|o|d|jar|class)$',
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -161,7 +161,7 @@ nmap <silent> <Leader>o :FSHere<cr>
 " enable vim hardmode
 let g:HardMode_level = 'wannabe'
 let g:HardMode_hardmodeMsg = "Don't use this!"
-"autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
 
 nnorem:help vimtex-tex-flavorap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -189,11 +189,11 @@ filetype plugin indent on
 
 " abbreviations
 " ↔ left right arrow
-iabbrev <-> <C-V>u2194
+"" iabbrev <-> <C-V>u2194
 " ← left arrow
-iabbrev <-- <C-V>u2190
+"" iabbrev <-- <C-V>u2190
 " → right arrow
-iabbrev --> <C-V>u2192
+"" iabbrev --> <C-V>u2192
 
 " default indent for most extensions
 au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
