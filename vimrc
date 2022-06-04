@@ -196,7 +196,7 @@ filetype plugin indent on
 "" iabbrev --> <C-V>u2192
 
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -243,12 +243,12 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.h,*.hpp,*.imk,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                                            exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.h,*.hpp                                       exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.hpp                                       exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.h,*.hpp,*.imk,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.sh                                                            exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.hpp                                                       exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.hpp                                                       exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 " F5 will launch python3
 nnoremap <silent> <F5> :!python3 %<CR>
@@ -276,30 +276,33 @@ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' 
 exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'blue', 'none', 'blue', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', 'Red', '#151515')
-call NERDTreeHighlightFile('ejs', 'Red', 'none', 'Red', '#151515')
-call NERDTreeHighlightFile('csv', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('txt', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('h', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.bashrc', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.bashprofile', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('.c', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('hpp', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('cpp', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('py', 'Magenta', 'none', 'Magenta', '#151515')
-call NERDTreeHighlightFile('ds_store', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashrc', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('bashprofile', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('makefile', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('CMakeLists.txt', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('.conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('.config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('.cpp', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('.css', 'blue', 'none', 'blue', '#151515')
+call NERDTreeHighlightFile('.csv', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.ds_store', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.ejs', 'Red', 'none', 'Red', '#151515')
+call NERDTreeHighlightFile('.f', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('.f90', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('.f95', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('.gitconfig', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.gitignore', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.h', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('.hpp', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.js', 'Red', 'none', 'Red', '#151515')
+call NERDTreeHighlightFile('.json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('.ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('makefile', 'Gray', 'none', '#686868', '#151515')
+call NERDTreeHighlightFile('.md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('.py', 'Magenta', 'none', 'Magenta', '#151515')
+call NERDTreeHighlightFile('.styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('.txt', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('.yml', 'yellow', 'none', 'yellow', '#151515')
