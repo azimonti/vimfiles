@@ -46,7 +46,7 @@ call plug#begin($HOME . '/.vim/plugged')
     " Python indent plugin
     Plug 'Vimjas/vim-python-pep8-indent'
     " Disable arrow keys
-    Plug 'wikitopian/hardmode'
+    Plug 'takac/vim-hardtime'
     " highlight trail spaces in red
     Plug 'ntpeters/vim-better-whitespace'
     " ejs syntax
@@ -142,12 +142,11 @@ nnoremap <leader>f :GitGrep<Space>
 nnoremap <leader>g :exec("tag ".expand("<cword>"))<CR>
 " <leader>cd to change the dir to the current file
 nnoremap <leader>cd :cd %:p:h<CR>
-
-" ctrlp-modified shortcuts (NOTE: not working in Windows ?)
+" CtrpP shortcuts
 map <Leader>m :CtrlPModified<CR>
 map <Leader>M :CtrlPBranch<CR>
-
-" == Settings for CtrlP Finder
+map <F4> :CtrlPClearCache<CR>
+" CtrlP finder
 let g:ctrlp_by_filename = 1
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$|bin$|build$|Debug$|data$|obj|Release$',
@@ -155,16 +154,17 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
-" == Settings for fswitch
-nmap <silent> <Leader>o :FSHere<cr>
+" fswitch
+nmap <silent> <Leader>o :FSHere<CR>
 
-" enable vim hardmode
-let g:HardMode_level = 'wannabe'
-let g:HardMode_hardmodeMsg = "Don't use this!"
-"" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call EasyMode()
-
-nnorem:help vimtex-tex-flavorap <leader>h <Esc>:call ToggleHardMode()<CR>
+" vim hardmode setting
+let g:hardtime_showmsg = 1
+let g:hardtime_timeout = 100000000
+let g:list_of_normal_keys = []
+let g:list_of_visual_keys = []
+let g:list_of_insert_keys = []
+let g:list_of_disabled_keys = ["<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
+map <Leader>ht :HardTimeToggle<CR>
 
 " set ft-vim-plugin option
 let g:tex_flavor = 'latex'
