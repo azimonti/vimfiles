@@ -157,7 +157,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 " fswitch
 nmap <silent> <Leader>o :FSHere<CR>
 
-" vim hardmode setting
+" vim-fugitive
+command GPush Git pull | Git push
+cnoreabbrev gp GPush
+cnoreabbrev <silent> gs Git
+
+" vim hardmode settings
 let g:hardtime_showmsg = 1
 let g:hardtime_timeout = 100000000
 let g:list_of_normal_keys = []
