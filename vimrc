@@ -72,6 +72,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'derekwyatt/vim-fswitch'
     " Tagbar
     Plug 'majutsushi/tagbar'
+    " GitGrep for fast grepping
+    Plug 'tjennings/git-grep-vim'
 call plug#end()
 
 " colorscheme
