@@ -118,7 +118,7 @@ inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
 " Nerdtree config for wildignore
 "let NERDTreeRespectWildIgnore=1
-let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'bin$[[dir]]', 'build$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', 'xml$[[dir]]']
+let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'tags', 'bin$[[dir]]', 'build$[[dir]]', 'ctags.d$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', '_var$[[dir]]', 'xml$[[dir]]']
 
 " open NERDTree at startup
 "autocmd vimenter * NERDTree
