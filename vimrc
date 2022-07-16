@@ -74,6 +74,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'majutsushi/tagbar'
     " GitGrep for fast grepping
     Plug 'tjennings/git-grep-vim'
+    " Quick list and location list toggler
+    Plug 'Valloric/ListToggle'
 call plug#end()
 
 " colorscheme
@@ -114,6 +116,13 @@ nnoremap <C-l> <C-w><C-l>
 " select next/prev using C-j/k instead of C-n/p
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
+
+map <silent> <A-j> :cnext<CR>
+map <silent> <A-k> :cprevious<CR>
+map <silent> <A-c> :cclose<CR>
+map <silent> ∆ :cnext<CR>
+map <silent> ˚ :cprevious<CR>
+map <silent> ç :cclose<CR>
 
 set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
 " Nerdtree config for wildignore
