@@ -117,6 +117,10 @@ nnoremap <C-l> <C-w><C-l>
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 
+" clang-format
+map <C-I> :py3file /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
+imap <C-I> <c-o>:py3file /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
+
 map <silent> <A-j> :cnext<CR>
 map <silent> <A-k> :cprevious<CR>
 map <silent> <A-c> :cclose<CR>
