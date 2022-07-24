@@ -76,6 +76,8 @@ call plug#begin($HOME . '/.vim/plugged')
     Plug 'tjennings/git-grep-vim'
     " Quick list and location list toggler
     Plug 'Valloric/ListToggle'
+    " allow local configuration file by project
+    Plug 'embear/vim-localvimrc'
 call plug#end()
 
 " colorscheme
@@ -117,16 +119,17 @@ nnoremap <C-l> <C-w><C-l>
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
 
-" clang-format
-map <C-I> :py3file /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
-imap <C-I> <c-o>:py3file /usr/local/opt/clang-format/share/clang/clang-format.py<cr>
-
 map <silent> <A-j> :cnext<CR>
 map <silent> <A-k> :cprevious<CR>
 map <silent> <A-c> :cclose<CR>
 map <silent> ∆ :cnext<CR>
 map <silent> ˚ :cprevious<CR>
 map <silent> ç :cclose<CR>
+
+" localvimrc configuration
+let g:localvimrc_sandbox = 0
+let g:localvimrc_ask = 0
+let s:localvimrc_whitelist = '.*'
 
 set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
 " Nerdtree config for wildignore
@@ -157,6 +160,7 @@ nnoremap <leader>f :GitGrep<Space>
 nnoremap <leader>g :exec("tag ".expand("<cword>"))<CR>
 " <leader>cd to change the dir to the current file
 nnoremap <leader>cd :cd %:p:h<CR>
+
 " CtrpP shortcuts
 map <Leader>m :CtrlPModified<CR>
 map <Leader>M :CtrlPBranch<CR>
@@ -168,6 +172,9 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|o|d|jar|class)$',
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
+" F6  will remove all trailing whitespaces
+nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " fswitch
 nmap <silent> <Leader>o :FSHere<CR>
@@ -248,11 +255,9 @@ au BufNewFile,BufRead *.css,*.ejs,*.js,*.html,*.svg,*.xml
     \ set shiftwidth=2 |
     \ set fileformat=unix
 
-au BufEnter *.ejs :setl filetype=html
-au BufEnter *.env :setl filetype=sh
-au BufEnter *.imk :setl filetype=sh
-au BufEnter *.sh.cfg :setl filetype=sh
-au BufEnter *.svg :setl filetype=xml
+" load termdebug
+packadd! termdebug
+let g:termdebug_wide=1
 
 function! NewUuid()
   if executable('uuidgen')
@@ -270,15 +275,6 @@ endfunction
 :autocmd bufnewfile *.h,*.hpp                                                             exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
 :autocmd bufnewfile *.h,*.hpp                                                             exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
-" F5 will launch python3
-nnoremap <silent> <F5> :!python3 %<CR>
-" F6  will remove all trailing whitespaces
-nnoremap <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-" F7 will launch autopep8
-autocmd FileType python noremap <buffer> <F7> :call Autopep8()<CR>
-let g:autopep8_aggressive=2
-" F8 will launch flake8
-autocmd FileType python map <buffer> <F8> :call flake8#Flake8()<CR>
 
 " disable annoying beeping
 set noerrorbells
