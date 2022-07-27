@@ -223,7 +223,7 @@ filetype plugin indent on
 "" iabbrev --> <C-V>u2192
 
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh,*.vim
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
