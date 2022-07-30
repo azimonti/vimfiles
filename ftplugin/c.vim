@@ -29,7 +29,6 @@ function! WriteGdbBreakpointFile(fname)
         let a:fname=g:breakpoints_file
     endif
     call writefile(["# Breakpoints"], a:fname)
-    let cur_buffer = bufnr('%')
     for buf in getbufinfo({'buflisted':1})
         execute "let b_list=sign_getplaced(\"" . buf.name  . "\", {'group' : 'breakpoints'})"
         for item in b_list[0].signs
