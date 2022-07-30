@@ -1,8 +1,8 @@
 " F2 will launch clang-format
 " h / cpp / hpp will read this plugin file as well
 nnoremap <silent> <F2> :py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
-map <C-I> :py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
-imap <C-I> <c-o>:py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
+map <C-o> :py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
+imap <C-o>:py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
 
 " define the sign for breakpoints
 highlight Breakpoints guifg=#000000 guibg= #ff8c1a
