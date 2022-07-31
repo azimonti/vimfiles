@@ -222,6 +222,12 @@ filetype plugin indent on
 " → right arrow
 "" iabbrev --> <C-V>u2192
 
+" set default indent removing tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 " default indent for most extensions
 au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh,*.vim
     \ set tabstop=4 |
