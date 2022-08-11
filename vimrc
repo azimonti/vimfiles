@@ -108,6 +108,8 @@ set nowritebackup
 set scrolloff=1 " keep 1 line below and above the cursor
 set laststatus=2 " always show the status line
 
+set nrformats-=octal " remove octal from the nrformats list
+
 " simplified splits nagivation
 " Using C-hjkl to move around
 nnoremap <C-h> <C-w><C-h>
