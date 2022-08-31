@@ -34,7 +34,9 @@ call plug#begin($HOME . '/.vim/plugged')
     " Add commands like Remove, Move, Find
     Plug 'tpope/vim-eunuch'
     " Use the sign column to indicate added, modified and removed lines
-    Plug 'mhinz/vim-signify'
+    if !(has('win32') || has('win64') || has('win32unix'))
+        Plug 'mhinz/vim-signify'
+    endif
     " Controp
     Plug 'ctrlpvim/ctrlp.vim'
     " List modified files in a git repo
