@@ -110,6 +110,8 @@ set nowritebackup
 set scrolloff=1 " keep 1 line below and above the cursor
 set laststatus=2 " always show the status line
 
+set nrformats-=octal " remove octal from the nrformats list
+
 " simplified splits nagivation
 " Using C-hjkl to move around
 nnoremap <C-h> <C-w><C-h>
@@ -224,8 +226,14 @@ filetype plugin indent on
 " → right arrow
 "" iabbrev --> <C-V>u2192
 
+" set default indent removing tabs
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh,*.vim
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
