@@ -6,7 +6,7 @@ imap <C-o>:py3file /usr/local/opt/clang-format/share/clang/clang-format.py<CR>
 
 " define the sign for breakpoints
 highlight Breakpoints guifg=#000000 guibg= #ff8c1a
-sign define breakpoints text=◯ texthl=Breakpoints
+sign define breakpoints text=o texthl=Breakpoints
 
 " Add mappings for :Step and :Over
 noremap <silent> <F10> :Over<CR>
