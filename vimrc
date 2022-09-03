@@ -119,6 +119,15 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
+" cycle open buffers
+:nnoremap <Tab> :bnext<CR>
+:nnoremap <S-Tab> :bprevious<CR>
+" list open buffers
+:nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
+:nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
+:nnoremap ˜ :bnext<CR>:redraw<CR>:ls<CR>
+:nnoremap π :bprevious<CR>:redraw<CR>:ls<CR>
+
 " select next/prev using C-j/k instead of C-n/p
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("j"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("k"))
