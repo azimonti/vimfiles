@@ -311,23 +311,15 @@ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' 
 exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('.bashrc', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('.bashprofile', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('.c', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('CMakeLists.txt', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('.coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('.conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('.config', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('.cpp', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('.css', 'blue', 'none', 'blue', '#151515')
-call NERDTreeHighlightFile('.csv', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('.ds_store', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('.ejs', 'Red', 'none', 'Red', '#151515')
 call NERDTreeHighlightFile('.f', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('.f90', 'cyan', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('.f95', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('.gitconfig', 'Gray', 'none', '#686868', '#151515')
-call NERDTreeHighlightFile('.gitignore', 'Gray', 'none', '#686868', '#151515')
 call NERDTreeHighlightFile('.gpi', 'green', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('.h', 'cyan', 'none', 'green', '#151515')
 call NERDTreeHighlightFile('.hpp', 'cyan', 'none', 'green', '#151515')
