@@ -242,7 +242,7 @@ set shiftwidth=4
 set expandtab
 
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh,*.vim
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.m,*.py,*.sh,*.vim
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -287,12 +287,12 @@ function! NewUuid()
 endfunction
 
 " Templates
-:autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                                                                  exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.h,*.hpp                                                             exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.hpp                                                             exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.sh                                                                      exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd bufnewfile *.h,*.hpp                                                                 exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd bufnewfile *.h,*.hpp                                                                 exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 
 " disable annoying beeping
