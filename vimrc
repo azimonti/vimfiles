@@ -242,7 +242,7 @@ set shiftwidth=4
 set expandtab
 
 " default indent for most extensions
-au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.f,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.m,*.py,*.sh,*.vim
+au BufNewFile,BufRead *.c,*.cpp,*.cc,*.ccx,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.hh,*.hxx,*.imk,*.py,*.sh,*.vim
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -266,8 +266,8 @@ au BufNewFile,BufRead *.dot
     \ set smartindent |
     \ set fileformat=unix
 
-" js, html, css indent
-au BufNewFile,BufRead *.css,*.ejs,*.js,*.html,*.svg,*.xml
+" css, ejs, js, html, m, svg, xml indent
+au BufNewFile,BufRead *.css,*.ejs,*.js,*.m,*.html,*.svg,*.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set expandtab |
