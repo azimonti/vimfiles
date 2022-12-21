@@ -3,4 +3,4 @@ function! RunOctave()
     w
     execute 'AsyncRun /usr/local/bin/octave %'
 endfunction
-nnoremap <F5> :call RunOctave() <CR>
+nnoremap <F5> :call RunOctave()<CR>

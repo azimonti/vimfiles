@@ -3,4 +3,4 @@ function! RunSh()
     w
     execute 'AsyncRun /bin/sh %'
 endfunction
-nnoremap <F5> :call RunSh() <CR>
+nnoremap <F5> :call RunSh()<CR>

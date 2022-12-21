@@ -66,10 +66,10 @@ function! LoadBreakpoints()
 endfunction
 
 " Add toggle breakpoints
-noremap <F9> :call ToggleBrakepoint() <CR>
+noremap <F9> :call ToggleBrakepoint()<CR>
 " Clear all breakpoints
-noremap <leader><F9>d :call sign_unplace('breakpoints') <CR>
+noremap <leader><F9>d :call sign_unplace('breakpoints')<CR>
 " Save All breakpoints
-noremap <leader><F9>s :call SaveBreakpoints() <CR>
+noremap <leader><F9>s :call SaveBreakpoints()<CR>
 " Load breakpoints - note buffer must be loaded
-noremap <leader><F9>l :call LoadBreakpoints() <CR>
+noremap <leader><F9>l :call LoadBreakpoints()<CR>
