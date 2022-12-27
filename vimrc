@@ -226,6 +226,7 @@ let g:better_whitespace_operator='_s'
 
 syntax on
 filetype plugin indent on
+au BufEnter *.imk :set syntax=sh
 
 " abbreviations
 " ↔ left right arrow

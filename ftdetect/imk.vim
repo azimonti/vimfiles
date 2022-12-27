@@ -1,1 +1,1 @@
-au BufEnter *.imk :setl filetype=sh
+au BufEnter *.imk :setl filetype=imk
