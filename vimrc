@@ -134,6 +134,9 @@ set laststatus=2 " always show the status line
 
 set nrformats-=octal " remove octal from the nrformats list
 
+" Disable automatic comment insertion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " simplified splits nagivation
 " Using C-hjkl to move around
 nnoremap <C-h> <C-w><C-h>
