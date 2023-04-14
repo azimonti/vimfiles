@@ -23,6 +23,8 @@ call plug#begin($HOME . '/.vim/plugged')
     " Automatically run autocomplete. No need for ctrl-n/p
     Plug 'eparreno/vim-l9'
     Plug 'othree/vim-autocomplpop'
+    " unload, delete or wipe a buffer without closing the window or split
+    Plug 'qpkorr/vim-bufkill'
     " For Git
     Plug 'tpope/vim-fugitive'
     " File browser
@@ -42,6 +44,7 @@ call plug#begin($HOME . '/.vim/plugged')
         let g:copilot_filetypes = {
                     \ '*': v:false,
                     \ 'cpp': v:true,
+                    \ 'cmake': v:true,
                     \ 'fortran': v:true,
                     \ 'python': v:true,
                     \ }
