@@ -46,6 +46,7 @@ call plug#begin($HOME . '/.vim/plugged')
                     \ 'cpp': v:true,
                     \ 'cmake': v:true,
                     \ 'fortran': v:true,
+                    \ 'matlab': v:true,
                     \ 'python': v:true,
                     \ }
         function ToggleCopilot()
