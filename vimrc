@@ -141,6 +141,9 @@ set nrformats-=octal " remove octal from the nrformats list
 " Disable automatic comment insertion
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" enable to replace in visual mode using h register
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " simplified splits nagivation
 " Using C-hjkl to move around
 nnoremap <C-h> <C-w><C-h>
