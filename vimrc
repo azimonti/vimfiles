@@ -39,29 +39,29 @@ call plug#begin($HOME . '/.vim/plugged')
         " Use the sign column to indicate added, modified and removed lines
         Plug 'mhinz/vim-signify'
         " Copilot"
-        Plug 'github/copilot.vim'
-        " Disable Copilot by default
-        let g:copilot_filetypes = {
-                    \ '*': v:false,
-                    \ 'cpp': v:true,
-                    \ 'cmake': v:true,
-                    \ 'fortran': v:true,
-                    \ 'matlab': v:true,
-                    \ 'python': v:true,
-                    \ }
-        function ToggleCopilot()
-            if exists('b:copilot_enabled')
-                if(b:copilot_enabled)
-                    let b:copilot_enabled=v:false
-                else
-                    let b:copilot_enabled=v:true
-                endif
-            else
-                let b:copilot_enabled=v:true
-            endif
-        endfunction
-        " map to toggle Copilot on / off
-        nnoremap <silent> <F3> :call ToggleCopilot()<CR>
+        " Plug 'github/copilot.vim'
+        " " Disable Copilot by default
+        " let g:copilot_filetypes = {
+        "             \ '*': v:false,
+        "             \ 'cpp': v:true,
+        "             \ 'cmake': v:true,
+        "             \ 'fortran': v:true,
+        "             \ 'matlab': v:true,
+        "             \ 'python': v:true,
+        "             \ }
+        " function ToggleCopilot()
+        "     if exists('b:copilot_enabled')
+        "         if(b:copilot_enabled)
+        "             let b:copilot_enabled=v:false
+        "         else
+        "             let b:copilot_enabled=v:true
+        "         endif
+        "     else
+        "         let b:copilot_enabled=v:true
+        "     endif
+        " endfunction
+        " " map to toggle Copilot on / off
+        " nnoremap <silent> <F3> :call ToggleCopilot()<CR>
     endif
     " Controp
     Plug 'ctrlpvim/ctrlp.vim'
