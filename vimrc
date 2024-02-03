@@ -303,7 +303,7 @@ au BufNewFile,BufRead *.dot
     \ set fileformat=unix
 
 " css, ejs, js, html, m, svg, xml indent
-au BufNewFile,BufRead *.css,*.ejs,*.js,*.m,*.html,*.svg,*.xml
+au BufNewFile,BufRead *.css,*.ejs,*.js,*,json,*.m,*.html,*.svg,*.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set expandtab |
