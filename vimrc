@@ -302,8 +302,8 @@ au BufNewFile,BufRead *.dot
     \ set smartindent |
     \ set fileformat=unix
 
-" css, ejs, js, html, m, svg, xml indent
-au BufNewFile,BufRead *.css,*.ejs,*.js,*,json,*.m,*.html,*.svg,*.xml
+" css, ejs, html, js, json, m, md, svg, xml indent
+au BufNewFile,BufRead *.css,*.ejs,*.html,*.js,*,json,*.m,*.md,*.svg,*.xml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set expandtab |
