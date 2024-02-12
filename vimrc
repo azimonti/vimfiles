@@ -324,11 +324,11 @@ endfunction
 
 " Templates
 :autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.sh,*.svg exe "0r ~/.vim/templates/skeleton." .expand("%:e")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
-:autocmd bufnewfile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.sh                                                                      exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
-:autocmd bufnewfile *.h,*.hpp                                                                 exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
-:autocmd bufnewfile *.h,*.hpp                                                                 exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.sh,*.svg exe "1," . 8 . "g/FILENAME/s//" .expand("%:t:r")
+:autocmd BufNewFile *.c,*.cpp,*.dot,*.f,*.f90,*.f95,*.gpi,*.h,*.hpp,*.imk,*.m,*.py,*.svg      exe "1," . 8 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd BufNewFile *.sh                                                                      exe "1," . 12 . "g#DATE#s##" .strftime("%Y/%m/%d")
+:autocmd BufNewFile *.h,*.hpp                                                                 exe "1," . 8 . "g/FILEGUARD/s//" .toupper(expand("%:t:r"))
+:autocmd BufNewFile *.h,*.hpp                                                                 exe "1," . 8 . "g/UUID/s//" .toupper(NewUuid())
 
 
 " disable annoying beeping
