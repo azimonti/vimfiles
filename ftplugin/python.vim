@@ -1,7 +1,7 @@
 " F5 will launch python3
 function! RunPython()
     w
-    execute 'AsyncRun python3 %'
+    silent! execute 'AsyncRun python3 %'
 endfunction
 nnoremap <F5> :call RunPython()<CR>
 " F7 will launch autopep8
