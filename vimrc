@@ -156,8 +156,8 @@ nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
 " cycle open buffers
-:nnoremap <Tab> :bnext<CR>
-:nnoremap <S-Tab> :bprevious<CR>
+" :nnoremap <Tab> :bnext<CR>
+" :nnoremap <S-Tab> :bprevious<CR>
 " list open buffers
 :nnoremap <A-n> :bnext<CR>:redraw<CR>:ls<CR>
 :nnoremap <A-p> :bprevious<CR>:redraw<CR>:ls<CR>
