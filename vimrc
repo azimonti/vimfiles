@@ -72,7 +72,7 @@ call plug#begin($HOME . '/.vim/plugged')
     " Rectify folding indent
     Plug 'tmhedberg/SimpylFold'
     " Python indent plugin
-    Plug 'Vimjas/vim-python-pep8-indent'
+    Plug 'tell-k/vim-autopep8'
     " Disable arrow keys
     Plug 'takac/vim-hardtime'
     " highlight trail spaces in red
