@@ -148,10 +148,10 @@ let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
 let s:localvimrc_whitelist = '.*'
 
-set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__,*.xml,*.csv
+set wildignore+=*.pyc,*.DS_Store,build,node_modules,__pycache__
 " Nerdtree config for wildignore
 "let NERDTreeRespectWildIgnore=1
-let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'bin$[[dir]]', 'build$[[dir]]', 'ctags.d$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', '_var$[[dir]]', 'xml$[[dir]]']
+let NERDTreeIgnore=[ '*.pyc$', '*.DS_Store$', 'ctags.d$[[dir]]', 'node_modules$[[dir]]', '__pycache__$[[dir]]', ]
 
 " open NERDTree at startup
 "autocmd vimenter * NERDTree
